@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import './App.css';
-import Navbar from './components/Navbar';
-import TextForm from './components/TextForm';
-import Alert from './components/Alert';
-import Privacypolicy from './components/privacypolicy.jsx';
+import Navbar from './components2/Navbar';
+import TextForm from './components2/TextForm';
+import Alert from './components2/Alert';
+import Privacypolicy from './components2/privacypolicy.jsx';
 
 
 function App() {
