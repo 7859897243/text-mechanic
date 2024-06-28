@@ -10,11 +10,13 @@ export default function TextForm(props) {
     const handUpchange = () => {
       let newText = text.toUpperCase();
       setText(newText);
+      props.showAlert("Converted to Uppercase", "success")
     }
 
     const handUpchangee = () => {
       let newText = text.toLowerCase();
       setText(newText);
+      props.showAlert("Converted to lowercase", "success")
     }
 
     
@@ -28,25 +30,26 @@ export default function TextForm(props) {
     const handleclear = () => {
       let newText = "";
       setText(newText);
+      props.showAlert("text will be clear", "success")
       
     }
 
     const handleCopy = () =>{
-      var newText = document.getElementById('exampleFormControlTextarea1');
-      newText.select();
-      navigator.clipboard.writeText(newText.value);
+      navigator.clipboard.writeText(text);
+      props.showAlert("text will be copy", "success")
     }
 
     const handleRemoveSpace = () =>{
       let newText = text.split(/[] + /);
       setText(newText.join(" "));
+
     }
 
   return (
     <div>
       <div className="mb-3 mx-5 my-5">
         <h1>{props.heading}</h1>
-  <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" value={text} onChange={handleonchange}></textarea>
+  <textarea className="form-control" id="exampleFormControlTextarea1" rows="8" value={text} onChange={handleonchange}></textarea>
   <button className='btn btn-outline-success my-3' disabled={text.length === 0} onClick={handUpchange}>Convert to upper btn</button>
   &nbsp;&nbsp;
   <button className='btn btn-outline-success my-3' disabled={text.length === 0} onClick={handUpchangee}>Convert to lower btn</button>
@@ -67,7 +70,7 @@ export default function TextForm(props) {
     <p>{text.length} Characters</p>
     <p>{0.008 * text.split(" ").length} reading time</p>
     <h3>preview</h3>
-    <p>{text}</p>
+    <p>{text.length>0 ? text : "Nothing to Preview !"}</p>
   </div>
 </div>
    
